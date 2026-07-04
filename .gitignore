@@ -1,0 +1,10 @@
+# Ignore node_modules in all projects
+**/node_modules/
+
+# Optional: Other common ignores
+.env
+.DS_Store
+npm-debug.log*
+logs/
+dist/
+coverage/
