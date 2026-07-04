@@ -1,23 +1,16 @@
 import express from 'express';
+import upload from "../middleware/multer.js";
 import {
- createProduct,
- getProducts,
- updateProduct,
- deleteProduct
+    createProduct,
+    getProducts,
+    updateProduct,
+    deleteProduct
 } from "../controllers/productController.js";
 
 const router = express.Router();
-
-// Route to create a new product
-router.post('/add', createProduct);
-
-// Route to get all products
+router.post("/add", upload.single("image"), createProduct);
 router.get('/', getProducts);
-
-// Route to update a product by ID
-router.put('/update/:id', updateProduct);
-
-// Route to delete a product by ID
+router.put("/update/:id", upload.single("image"), updateProduct);
 router.delete('/delete/:id', deleteProduct);
 
 export default router;
